@@ -1,10 +1,11 @@
+import globals from 'globals';
+
 import js from '@eslint/js';
 import importPlugin from 'eslint-plugin-import';
 import prettier from 'eslint-plugin-prettier';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
-import globals from 'globals';
 import * as tseslint from 'typescript-eslint';
 
 export default tseslint.config(
@@ -17,6 +18,7 @@ export default tseslint.config(
       'dist/',
       'packages/api/generated/',
       'tailwind.config.js',
+      'postcss.config.js',
       'crates/*/tests/**',
       'vite.config.ts',
       '**/*.test.ts',
