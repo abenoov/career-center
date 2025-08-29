@@ -1,21 +1,57 @@
 import { useState } from 'react';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
 
 const Login = () => {
-  const [count, setCount] = useState(0);
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
-    <div className="min-h-screen py-6 flex flex-col justify-center sm:py-12">
-      <div className="relative py-3 sm:max-w-xl sm:mx-auto">
-        <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
-          <div className="max-w-md mx-auto">
-            <div className="divide-y divide-gray-300">
-              <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
-                <p className="text-center text-sm text-gray-500 mt-8">
-                  Click on the Vite and React logos to learn more
-                </p>
-              </div>
-            </div>
-          </div>
+    <div className="min-h-screen py-6 flex flex-col justify-center">
+      <div className="w-96 m-auto relative px-12 py-10 bg-white shadow-lg rounded-[10px]">
+        <div className="max-w-lg mx-auto">
+          <h2 className="text-2xl font-medium text-center mb-8 text-gray-900">Добро пожаловать!</h2>
+
+          <form className="space-y-3">
+            <Input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              label="Адрес электронной почты"
+              placeholder="john.doe@example.com"
+              required
+            />
+
+            <Input
+              type={showPassword ? 'text' : 'password'}
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+              label="Пароль"
+              placeholder="•••••••••••••"
+              required
+            />
+
+            <Button variant="primary" fullWidth size="sm" type="submit" className="mt-4">
+              Войти
+            </Button>
+          </form>
         </div>
       </div>
     </div>
