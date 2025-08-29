@@ -2,6 +2,7 @@ import { lazy } from 'react';
 
 const SignupPage = lazy(() => import('./pages/auth/Signup'));
 const LoginPage = lazy(() => import('./pages/auth/Login'));
+const QuestionnairePage = lazy(() => import('./pages/Questionnaire'));
 
 const coreRoutes = [
   {
@@ -13,6 +14,11 @@ const coreRoutes = [
     path: '/login',
     title: 'Login',
     component: LoginPage,
+  },
+  {
+    path: '/questionnaire',
+    title: 'Questionnaire',
+    component: QuestionnairePage,
   },
 ];
 
