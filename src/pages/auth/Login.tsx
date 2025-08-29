@@ -23,7 +23,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen py-6 flex flex-col justify-center">
-      <div className="w-96 m-auto relative px-12 py-10 bg-white shadow-lg rounded-[10px]">
+      <div className="w-120 m-auto relative px-12 py-10 bg-white shadow-lg rounded-[10px]">
         <div className="max-w-lg mx-auto">
           <h2 className="text-2xl font-medium text-center mb-8 text-gray-900">Добро пожаловать!</h2>
 
@@ -51,6 +51,13 @@ const Login = () => {
             <Button variant="primary" fullWidth size="sm" type="submit" className="mt-4">
               Войти
             </Button>
+
+            <div className="text-center mt-4">
+              <span className="text-sm text-gray-600">Нет аккаунта? </span>
+              <Button variant="link" size="sm" onClick={() => (window.location.href = '/sign-up')}>
+                Зарегистрироваться
+              </Button>
+            </div>
           </form>
         </div>
       </div>
